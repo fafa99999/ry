@@ -84,98 +84,10 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','perm
         //删除
         Route::delete('permission/destroy','PermissionController@destroy')->name('admin.permission.destroy')->middleware('permission:system.permission.destroy');
     });
-    //菜单管理
-    Route::group(['middleware'=>'permission:system.menu'],function (){
-        Route::get('menu','MenuController@index')->name('admin.menu');
-        Route::get('menu/data','MenuController@data')->name('admin.menu.data');
-        //添加
-        Route::get('menu/create','MenuController@create')->name('admin.menu.create')->middleware('permission:system.menu.create');
-        Route::post('menu/store','MenuController@store')->name('admin.menu.store')->middleware('permission:system.menu.create');
-        //编辑
-        Route::get('menu/{id}/edit','MenuController@edit')->name('admin.menu.edit')->middleware('permission:system.menu.edit');
-        Route::put('menu/{id}/update','MenuController@update')->name('admin.menu.update')->middleware('permission:system.menu.edit');
-        //删除
-        Route::delete('menu/destroy','MenuController@destroy')->name('admin.menu.destroy')->middleware('permission:system.menu.destroy');
-    });
+
+ 
 });
 
-
-//资讯管理
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:zixun.manage']], function () {
-    //分类管理
-    Route::group(['middleware' => 'permission:zixun.category'], function () {
-        Route::get('category/data', 'CategoryController@data')->name('admin.category.data');
-        Route::get('category', 'CategoryController@index')->name('admin.category');
-        //添加分类
-        Route::get('category/create', 'CategoryController@create')->name('admin.category.create')->middleware('permission:zixun.category.create');
-        Route::post('category/store', 'CategoryController@store')->name('admin.category.store')->middleware('permission:zixun.category.create');
-        //编辑分类
-        Route::get('category/{id}/edit', 'CategoryController@edit')->name('admin.category.edit')->middleware('permission:zixun.category.edit');
-        Route::put('category/{id}/update', 'CategoryController@update')->name('admin.category.update')->middleware('permission:zixun.category.edit');
-        //删除分类
-        Route::delete('category/destroy', 'CategoryController@destroy')->name('admin.category.destroy')->middleware('permission:zixun.category.destroy');
-    });
-    //文章管理
-    Route::group(['middleware' => 'permission:zixun.article'], function () {
-        Route::get('article/data', 'ArticleController@data')->name('admin.article.data');
-        Route::get('article', 'ArticleController@index')->name('admin.article');
-        //添加
-        Route::get('article/create', 'ArticleController@create')->name('admin.article.create')->middleware('permission:zixun.article.create');
-        Route::post('article/store', 'ArticleController@store')->name('admin.article.store')->middleware('permission:zixun.article.create');
-        //编辑
-        Route::get('article/{id}/edit', 'ArticleController@edit')->name('admin.article.edit')->middleware('permission:zixun.article.edit');
-        Route::put('article/{id}/update', 'ArticleController@update')->name('admin.article.update')->middleware('permission:zixun.article.edit');
-        //删除
-        Route::delete('article/destroy', 'ArticleController@destroy')->name('admin.article.destroy')->middleware('permission:zixun.article.destroy');
-    });
-    //标签管理
-    Route::group(['middleware' => 'permission:zixun.tag'], function () {
-        Route::get('tag/data', 'TagController@data')->name('admin.tag.data');
-        Route::get('tag', 'TagController@index')->name('admin.tag');
-        //添加
-        Route::get('tag/create', 'TagController@create')->name('admin.tag.create')->middleware('permission:zixun.tag.create');
-        Route::post('tag/store', 'TagController@store')->name('admin.tag.store')->middleware('permission:zixun.tag.create');
-        //编辑
-        Route::get('tag/{id}/edit', 'TagController@edit')->name('admin.tag.edit')->middleware('permission:zixun.tag.edit');
-        Route::put('tag/{id}/update', 'TagController@update')->name('admin.tag.update')->middleware('permission:zixun.tag.edit');
-        //删除
-        Route::delete('tag/destroy', 'TagController@destroy')->name('admin.tag.destroy')->middleware('permission:zixun.tag.destroy');
-    });
-});
-//配置管理
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:config.manage']], function () {
-    //站点配置
-    Route::group(['middleware' => 'permission:config.site'], function () {
-        Route::get('site', 'SiteController@index')->name('admin.site');
-        Route::put('site', 'SiteController@update')->name('admin.site.update')->middleware('permission:config.site.update');
-    });
-    //广告位
-    Route::group(['middleware' => 'permission:config.position'], function () {
-        Route::get('position/data', 'PositionController@data')->name('admin.position.data');
-        Route::get('position', 'PositionController@index')->name('admin.position');
-        //添加
-        Route::get('position/create', 'PositionController@create')->name('admin.position.create')->middleware('permission:config.position.create');
-        Route::post('position/store', 'PositionController@store')->name('admin.position.store')->middleware('permission:config.position.create');
-        //编辑
-        Route::get('position/{id}/edit', 'PositionController@edit')->name('admin.position.edit')->middleware('permission:config.position.edit');
-        Route::put('position/{id}/update', 'PositionController@update')->name('admin.position.update')->middleware('permission:config.position.edit');
-        //删除
-        Route::delete('position/destroy', 'PositionController@destroy')->name('admin.position.destroy')->middleware('permission:config.position.destroy');
-    });
-    //广告信息
-    Route::group(['middleware' => 'permission:config.advert'], function () {
-        Route::get('advert/data', 'AdvertController@data')->name('admin.advert.data');
-        Route::get('advert', 'AdvertController@index')->name('admin.advert');
-        //添加
-        Route::get('advert/create', 'AdvertController@create')->name('admin.advert.create')->middleware('permission:config.advert.create');
-        Route::post('advert/store', 'AdvertController@store')->name('admin.advert.store')->middleware('permission:config.advert.create');
-        //编辑
-        Route::get('advert/{id}/edit', 'AdvertController@edit')->name('admin.advert.edit')->middleware('permission:config.advert.edit');
-        Route::put('advert/{id}/update', 'AdvertController@update')->name('admin.advert.update')->middleware('permission:config.advert.edit');
-        //删除
-        Route::delete('advert/destroy', 'AdvertController@destroy')->name('admin.advert.destroy')->middleware('permission:config.advert.destroy');
-    });
-});
 //会员管理
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:member.manage']], function () {
     //账号管理

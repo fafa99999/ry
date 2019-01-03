@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 trait Msg{
 
     //检测手机号码格式
-    public function verifyPhone($phone){
+    public  function verifyPhone($phone){
         return preg_match('/^1[3456789][0-9]{9}$/',$phone);
     }
 
@@ -21,9 +21,9 @@ trait Msg{
             return response()->json(['code'=>1,'msg'=>'手机号码格式错误']);
         }
         //检测图形验证码是否正确
-        if (!$this->verifyCaptcha($request)){
-            return response()->json(['code'=>1,'msg'=>'图形验证码不正确']);
-        }
+//        if (!$this->verifyCaptcha($request)){
+//            return response()->json(['code'=>1,'msg'=>'图形验证码不正确']);
+//        }
         $code = mt_rand(100000,999999);
         $content = '【转丁丁】您的验证码为：'.$code.'，有效期10分钟。';
         $msgApiUrl = "http://139.224.36.226:1082/wgws/BatchSubmit";

@@ -28,14 +28,14 @@ class IndexController extends Controller
     {
         return view('admin.index.index');
     }
-    public function index1()
-    {
-        return view('admin.index.index1');
-    }
-    public function index2()
-    {
-        return view('admin.index.index2');
-    }
+//    public function index1()
+//    {
+//        return view('admin.index.index1');
+//    }
+//    public function index2()
+//    {
+//        return view('admin.index.index2');
+//    }
 
     /**
      * @param Request $request
