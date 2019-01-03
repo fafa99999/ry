@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class SerrepairController extends Controller
 {
 
-
+	use Msg;
  	/**
  	 * 添加报修
  	 * @param  Request $request [description]
@@ -28,6 +28,6 @@ class SerrepairController extends Controller
      * @return [type]           [description]
      */
     public function index(Request $request){
-
+    
     }
 }
