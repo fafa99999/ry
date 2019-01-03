@@ -28,6 +28,5 @@ class SerrepairController extends Controller
      * @return [type]           [description]
      */
     public function index(Request $request){
-    
     }
 }

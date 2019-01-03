@@ -3,6 +3,7 @@ namespace App\Traits;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 trait Msg{
 
@@ -36,6 +37,7 @@ trait Msg{
             'content'       => $content,        //内容
             'sendTime'      => ''               //发送时间，为空表示立即发送，时间格式为：yyyyMMddHHmmss
         ];
+        Redis::setex('code_login' .$phone, 3000, $code);
         //错误码
         $statusCode = [
             0=>"发送成功",
