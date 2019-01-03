@@ -4885,17 +4885,17 @@
     },
     {
         "name": "vlucas/phpdotenv",
-        "version": "v2.5.1",
-        "version_normalized": "2.5.1.0",
+        "version": "v2.5.2",
+        "version_normalized": "2.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e"
+            "reference": "cfd5dc225767ca154853752abc93aeec040fcf36"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
-            "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/cfd5dc225767ca154853752abc93aeec040fcf36",
+            "reference": "cfd5dc225767ca154853752abc93aeec040fcf36",
             "shasum": ""
         },
         "require": {
@@ -4904,7 +4904,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.8.35 || ^5.0"
         },
-        "time": "2018-07-29T20:33:41+00:00",
+        "time": "2018-10-30T17:29:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -5099,17 +5099,17 @@
     },
     {
         "name": "yansongda/supports",
-        "version": "v1.8.5",
-        "version_normalized": "1.8.5.0",
+        "version": "v1.8.6",
+        "version_normalized": "1.8.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/yansongda/supports.git",
-            "reference": "0360fd2a430fb838f116999330bd6055c17772a3"
+            "reference": "08a2a7f3394aa9d685a6d330f7dde8602a076bfd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yansongda/supports/zipball/0360fd2a430fb838f116999330bd6055c17772a3",
-            "reference": "0360fd2a430fb838f116999330bd6055c17772a3",
+            "url": "https://api.github.com/repos/yansongda/supports/zipball/08a2a7f3394aa9d685a6d330f7dde8602a076bfd",
+            "reference": "08a2a7f3394aa9d685a6d330f7dde8602a076bfd",
             "shasum": ""
         },
         "require": {
@@ -5117,7 +5117,7 @@
             "monolog/monolog": "^1.23",
             "php": ">=5.5"
         },
-        "time": "2018-12-03T11:38:41+00:00",
+        "time": "2019-01-02T10:54:10+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

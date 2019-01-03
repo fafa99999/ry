@@ -29,12 +29,19 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth'],funct
     Route::get('/','IndexController@layout')->name('admin.layout');
     //后台首页
     Route::get('/index','IndexController@index')->name('admin.index');
-    Route::get('/index1','IndexController@index1')->name('admin.index1');
-    Route::get('/index2','IndexController@index2')->name('admin.index2');
     //图标
     Route::get('icons','IndexController@icons')->name('admin.icons');
 });
 
+/**
+ * 查看基本信息与修改个人资料
+ */
+Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth'],function (){
+         //查看个人信息.修改个人资料
+        Route::get('user/show/{id}','UserController@show')->name('admin.user.show');
+        Route::post('user/edits/{id}','UserController@edits')->name('admin.user.edits');
+
+});
 //系统管理
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','permission:system.manage']],function (){
     //数据表格接口

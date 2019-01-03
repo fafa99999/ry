@@ -56,8 +56,19 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where(['id'=>$id])->select('username','phone','email','id')->first();
+        return view('admin.user.show',compact('user'));
     }
+
+    public function edits(Request $request){
+
+
+
+
+
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
