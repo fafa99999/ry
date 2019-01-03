@@ -104,23 +104,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('member/destroy', 'MemberController@destroy')->name('admin.member.destroy')->middleware('permission:member.member.destroy');
     });
 });
-//消息管理
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'permission:message.manage']], function () {
-    //消息管理
-    Route::group(['middleware' => 'permission:message.message'], function () {
-        Route::get('message/data', 'MessageController@data')->name('admin.message.data');
-        Route::get('message/getUser', 'MessageController@getUser')->name('admin.message.getUser');
-        Route::get('message', 'MessageController@index')->name('admin.message');
-        //添加
-        Route::get('message/create', 'MessageController@create')->name('admin.message.create')->middleware('permission:message.message.create');
-        Route::post('message/store', 'MessageController@store')->name('admin.message.store')->middleware('permission:message.message.create');
-        //删除
-        Route::delete('message/destroy', 'MessageController@destroy')->name('admin.message.destroy')->middleware('permission:message.message.destroy');
-        //我的消息
-        Route::get('mine/message', 'MessageController@mine')->name('admin.message.mine')->middleware('permission:message.message.mine');
-        Route::post('message/{id}/read', 'MessageController@read')->name('admin.message.read')->middleware('permission:message.message.mine');
 
-        Route::get('message/count', 'MessageController@getMessageCount')->name('admin.message.get_count');
-    });
 
-});
