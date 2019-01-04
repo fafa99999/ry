@@ -53,7 +53,6 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Traits\\Msg' => $baseDir . '/app/Traits/Msg.php',
-    'App\\Traits\\PushMessage' => $baseDir . '/app/Traits/PushMessage.php',
     'App\\models\\SendSms' => $baseDir . '/app/Models/SendSms.php',
     'App\\models\\Serrpair' => $baseDir . '/app/Models/Serrpair.php',
     'App\\models\\Sms' => $baseDir . '/app/Models/Sms.php',

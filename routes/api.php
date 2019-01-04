@@ -17,13 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 /**
+ * 发送短信
+ */
+Route::post('/sendMsg', 'PublicController@sendMsg')->name('sendMsg');
+/**
  * 注册 登录
  */
 Route::group(['namespace'=>'Api','prefix'=>'login'],function (){
    //注册
    Route::get('registered','LoginController@registered')->name('api.login.registered');
-   //发送短信
-    Route::get('msg','LoginController@msg');
    //登录
    Route::post('login','LoginController@login')->name('api.login.login');
 });

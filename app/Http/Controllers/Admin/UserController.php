@@ -56,20 +56,41 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where(['id'=>$id])->select('username','phone','email','id')->first();
+        $user = User::where(['id'=>$id])->select('username','phone','email','id','name')->first();
         return view('admin.user.show',compact('user'));
     }
 
-    public function edits(Request $request){
+    public function edits(Request $request,$id){
+        $this->validate($request,
+            [
+                'username'=>'required|min:2|max:30',
+                'email'=>'required|email',
+                'password'=>'required|min:6',
+            ],
+            [
+                'username.required'=>'用户名不能为空!',
+                'password.required'=>'密码不能为空!',
+                'name.min'=>'用户名不能低于2位!',
+                'password.min'=>'密码不能低于6位!',
+                'email.email'=>'邮箱填写不合法!',
+                'email.unique'=>'该邮箱已存在!',
+                'username.unique'=>'该用户名已存在!',
+            ]);
+        $res  = User::where('id',$id)
+            ->update([
+                'username'=>$request->username,
+                'phone'=>$request->phone,
+                'password'=>bcrypt($request->password),
+                'email'=>$request->email
+            ]);
+        if (!empty($res)){
 
+            return redirect()->back()->with(['status'=>'个人信息更新成功']);
 
-
-
-
+        }else{
+            return redirect()->back()->withErrors(['status'=>'信息更新失败']);
+        }
     }
-
-
-
     /**
      * Show the form for editing the specified resource.
      *

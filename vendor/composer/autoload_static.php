@@ -472,7 +472,6 @@ class ComposerStaticInit760318d410bbe74fd13d9bc68b5d45ea
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Traits\\Msg' => __DIR__ . '/../..' . '/app/Traits/Msg.php',
-        'App\\Traits\\PushMessage' => __DIR__ . '/../..' . '/app/Traits/PushMessage.php',
         'App\\models\\SendSms' => __DIR__ . '/../..' . '/app/Models/SendSms.php',
         'App\\models\\Serrpair' => __DIR__ . '/../..' . '/app/Models/Serrpair.php',
         'App\\models\\Sms' => __DIR__ . '/../..' . '/app/Models/Sms.php',
